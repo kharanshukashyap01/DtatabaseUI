@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+</head>
+
+<body>
+    <h1>Customer List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>CustomerID</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td><a href="/customer/{{ customer[0] }}">{{ customer[0] }}</a></td>
+                <td>{{ customer[1] }}</td>
+                <td>{{ customer[2] }}</td>
+                <td>{{ customer[3] }}</td>
+                <td>{{ customer[4] }}</td>
+                <td>{{ customer[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

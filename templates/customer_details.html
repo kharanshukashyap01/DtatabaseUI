@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+</head>
+
+<body>
+    <h1>Customer Details</h1>
+    {% if customer %}
+    <h2>{{ customer[1] }} {{ customer[2] }}</h2>
+    <p>Email: {{ customer[3] }}</p>
+    <p>Phone: {{ customer[4] }}</p>
+    <p>Status: {{ customer[5] }}</p>
+    {% endif %}
+    <h2>Contact, Sale, and Product Information</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>CustomerID</th>
+                <th>ContactID</th>
+                <th>SaleID</th>
+                <th>ProductID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if contacts %} {% for contact in contacts %}
+            <tr>
+                <td>{{ customer[0] }}</td>
+                <td>{{ contact[0] }}</td>
+                <td>{{ sales[loop.index0][0] if sales|length > loop.index0 else '' }}</td>
+                <td>{{ sales[loop.index0][1] if sales|length > loop.index0 else '' }}</td>
+            </tr>
+            {% endfor %} {% else %}
+            <tr>
+                <td colspan="4">No contact found.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+
+</html>
