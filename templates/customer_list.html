@@ -29,6 +29,8 @@
                 <td>{{ customer[3] }}</td>
                 <td>{{ customer[4] }}</td>
                 <td>{{ customer[5] }}</td>
+                <td><a href="/edit_customer/{{ customer[0] }}">Edit</a></td>
+                <td><a href="/delete_customer/{{ customer[0] }}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>

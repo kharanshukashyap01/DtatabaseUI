@@ -1,0 +1,19 @@
+<h1>Edit Customer</h1>
+<form action="/update_customer/{{ customer[0] }}" method="post">
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name" value="{{ customer[1] }}"><br>
+
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name" value="{{ customer[2] }}"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="{{ customer[3] }}"><br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" value="{{ customer[4] }}"><br>
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" name="status" value="{{ customer[5] }}"><br>
+
+    <input type="submit" value="Update">
+</form>

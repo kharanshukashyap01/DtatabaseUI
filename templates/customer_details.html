@@ -15,31 +15,42 @@
     <p>Phone: {{ customer[4] }}</p>
     <p>Status: {{ customer[5] }}</p>
     {% endif %}
-    <h2>Contact, Sale, and Product Information</h2>
+
+    <h2>Contact Information</h2>
     <table border="1">
         <thead>
             <tr>
-                <th>CustomerID</th>
                 <th>ContactID</th>
-                <th>SaleID</th>
-                <th>ProductID</th>
+                <th>CustomerID</th>
+                <th>ContactType</th>
+                <th>ContactValue</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% if contacts %} {% for contact in contacts %}
             <tr>
-                <td>{{ customer[0] }}</td>
                 <td>{{ contact[0] }}</td>
-                <td>{{ sales[loop.index0][0] if sales|length > loop.index0 else '' }}</td>
-                <td>{{ sales[loop.index0][1] if sales|length > loop.index0 else '' }}</td>
+                <td>{{ contact[1] }}</td>
+                <td>{{ contact[2] }}</td>
+                <td>{{ contact[3] }}</td>
+                <td>
+                    <a href="/contact/{{ contact[0] }}/edit">Edit</a>
+                    <form action="/contact/{{ contact[0] }}/delete" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %} {% else %}
             <tr>
-                <td colspan="4">No contact found.</td>
+                <td colspan="5">No contact found.</td>
             </tr>
             {% endif %}
         </tbody>
     </table>
+
+    <a href="/customer/{{ customer[0] }}/add_contact">Add New Contact</a>
+
 </body>
 
 </html>
